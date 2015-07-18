@@ -13,8 +13,6 @@
 
 #include <float.h>
 #include <string>
-#include <stdlib.h>
-#include <time.h>
 
 #include "nb.h"
 #include "director.h"
