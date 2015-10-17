@@ -13,6 +13,8 @@
 
 #include <float.h>
 #include <string>
+#include <stdlib.h>
+#include <time.h>
 
 #include "nb.h"
 #include "director.h"
@@ -74,8 +76,8 @@ Xf_ThermSpinXferEvolve::Xf_ThermSpinXferEvolve(
     max_step_decrease(0.03125), max_step_increase_limit(4.0),
     max_step_increase_adj_ratio(1.9),
     reject_goal(0.05), reject_ratio(0.05),
-    KBoltzmann(1.38062e-23),tmpStepsize(1e-17),
-    has_tempscript(0),temperature(0.),
+    KBoltzmann(1.38062e-23),temperature(0.),
+    tmpStepsize(1e-17),has_tempscript(0),
     energy_state_id(0),next_timestep(1e-27),
     rkstep_ptr(NULL)
 {
@@ -1571,7 +1573,7 @@ void Xf_ThermSpinXferEvolve::TakeRungeKuttaStep2Heun
   GetEnergyDensity(next_state_key.GetReadReference(),temp_energy,
                    &vtmpA,NULL,pE_pt);
   UpdateHfluct(cstate->mesh);// Update the random field before calculating slopes
-  Oxs_SimState& workstate = next_state_key.GetWriteReference();
+  // Oxs_SimState& workstate = next_state_key.GetWriteReference();
   tmpStepsize = stepsize;
   Calculate_dm_dt(next_state_key.GetReadReference(),vtmpA,pE_pt,
                   vtmpA,max_dm_dt,dE_dt,timestep_lower_bound);
