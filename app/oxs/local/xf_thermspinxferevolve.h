@@ -175,10 +175,10 @@ private:
   /**
      Variables for the Random distributions
   **/
-  mutable unsigned int uniform_seed;		  	     // seed to initialize the generator with, can be any integer
+  unsigned int uniform_seed;		  	     // seed to initialize the generator with, can be any integer
   OC_BOOL has_unifSeed;                                      // Flag to check if seed is given
-  mutable OC_BOOL gaus2_isset;  // the here used gaussian distribution algorithm computes two values at a time, but only one is returned.
-  mutable OC_REAL8m gaus2;      // Therefor the second value (plus a flag) must be stored outside the method itself,
+  OC_BOOL gaus2_isset;  // the here used gaussian distribution algorithm computes two values at a time, but only one is returned.
+  OC_REAL8m gaus2;      // Therefor the second value (plus a flag) must be stored outside the method itself,
                         // to be returned when the method is called for the second time
 
   /**
